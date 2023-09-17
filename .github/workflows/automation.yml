@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: action/checkout@v4
-          with:
-            repository: ${{ github.repository }}
+          #with:
+            #repository: ${{ github.repository }}
             #token: ${{ secrets.PAT }}
             
       - name: Publish to Github Packages
