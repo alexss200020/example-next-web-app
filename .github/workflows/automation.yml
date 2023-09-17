@@ -1,1 +1,17 @@
-1
+name: Dockerize Next.js web application
+on: push
+jobs:
+  build-container:
+    name: Build Docker Container image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: action/checkout@v4
+      - name: Publish to Github Packages
+        uses: docker/build-push-action@v5
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ${{ github.repository }}/next
+          tags: latest, ${{ github.run_number }}
