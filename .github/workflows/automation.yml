@@ -1,19 +1,13 @@
 name: Dockerize Next.js web application
 on: push
 
-permissions:
-  contents: read
-
 jobs:
   build-container:
     name: Build Docker Container image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: action/checkout@v4
-          with:
-            repository: alexss200020/example-next-web-app
-            #token: ${{ secrets.PAT }}
+        uses: actions/checkout@v4
             
       - name: Publish to Github Packages
         uses: docker/build-push-action@v5
