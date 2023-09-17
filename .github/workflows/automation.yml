@@ -15,3 +15,11 @@ jobs:
           registry: docker.pkg.github.com
           repository: ${{ github.repository }}/next
           tags: latest, ${{ github.run_number }}
+
+      - name: Publish to Docker Hub
+        uses: docker/build-push-action@v5
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: alexss2000/next
+          tags: latest, ${{ github.run_number }}
