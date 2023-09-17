@@ -1,5 +1,9 @@
 name: Dockerize Next.js web application
 on: push
+
+permissions:
+  contents: read
+
 jobs:
   build-container:
     name: Build Docker Container image
