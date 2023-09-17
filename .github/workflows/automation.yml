@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: action/checkout@v4
+          with:
+            repository: ${{ github.repository }}
+            #token: ${{ secrets.PAT }}
+            
       - name: Publish to Github Packages
         uses: docker/build-push-action@v5
         with:
